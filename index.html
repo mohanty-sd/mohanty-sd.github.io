@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Soumya D. Mohanty - Professor of Physics & Astronomy</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .profile-info .title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .contact-info div {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Appointments */
+        .appointment-item {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .appointment-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .appointment-item .period {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Research Interests */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .research-item {
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .research-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .research-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Achievements */
+        .achievement-item {
+            background: linear-gradient(135deg, var(--bg-light), var(--white));
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        /* Publications */
+        .publication-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .publication-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .publication-authors {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .publication-journal {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hide sections by default for navigation */
+        .section:not(#about) {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <img src="profile.jpg" alt="Dr. Soumya D. Mohanty" class="profile-image">
+                <div class="profile-info">
+                    <h1>Dr. Soumya D. Mohanty</h1>
+                    <div class="title">Professor of Physics & Astronomy<br>Center for Gravitational Wave Astronomy</div>
+                    <div class="contact-info">
+                        <div>📧 Soumya.Mohanty@utrgv.edu</div>
+                        <div>📞 +1-956-882-6680</div>
+                        <div>🏛️ University of Texas Rio Grande Valley</div>
+                        <div>🔬 ORCID: 0000-0002-4651-6438</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about" class="nav-link active">About</a></li>
+                <li><a href="#appointments" class="nav-link">Appointments</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#teaching" class="nav-link">Teaching</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="about" class="section active">
+                <h2>About</h2>
+                <p class="about-text">
+                    I am a Professor in the Department of Physics and Astronomy and a member of the Center for Gravitational Wave Astronomy (CGWA) at the University of Texas Rio Grande Valley. My research focuses on gravitational wave data analysis, swarm intelligence methods, and statistical techniques for detecting signals from astrophysical sources.
+                </p>
+                <p class="about-text">
+                    With over two decades of experience in gravitational wave astronomy, I have contributed significantly to the field through my work on efficient data analysis techniques, particle swarm optimization methods, and the development of novel algorithms for detecting gravitational wave signals from various astrophysical sources including binary black holes, neutron stars, and extreme mass ratio inspirals.
+                </p>
+                <p class="about-text">
+                    I am also actively involved in international collaborations, serving on advisory committees for major gravitational wave projects including the Tianqin space-based detector project in China, and have extensive experience in supervising graduate students and postdoctoral researchers.
+                </p>
+            </section>
+
+            <section id="appointments" class="section">
+                <h2>Academic Appointments</h2>
+                <div class="appointment-item">
+                    <div class="period">2015 - Present</div>
+                    <h3>Professor</h3>
+                    <p>Department of Physics and Astronomy & Center for Gravitational Wave Astronomy (CGWA)<br>
+                    The University of Texas Rio Grande Valley (UTRGV)</p>
+                </div>
+                <div class="appointment-item">
+                    <div class="period">2022 - Present</div>
+                    <h3>Adjunct Professor</h3>
+                    <p>Department of Physics<br>
+                    Indian Institute of Technology Hyderabad, India</p>
+                </div>
+                <div class="appointment-item">
+                    <div class="period">2009 - 2015</div>
+                    <h3>Associate Professor</h3>
+                    <p>Department of Physics and Astronomy & Center for Gravitational Wave Astronomy (CGWA)<br>
+                    The University of Texas at Brownsville (UTB) [Now UTRGV]</p>
+                </div>
+                <div class="appointment-item">
+                    <div class="period">2003 - 2009</div>
+                    <h3>Assistant Professor</h3>
+                    <p>Department of Physics and Astronomy & Center for Gravitational Wave Astronomy (CGWA)<br>
+                    The University of Texas at Brownsville (UTB) [Now UTRGV]</p>
+                </div>
+                <div class="appointment-item">
+                    <div class="period">2000 - 2003</div>
+                    <h3>Postdoctoral Researcher</h3>
+                    <p>Max Planck Institut für Gravitationsphysik (Albert Einstein Institute), Golm, Germany<br>
+                    <em>Advisor: Prof. Bernard F. Schutz</em></p>
+                </div>
+            </section>
+
+            <section id="research" class="section">
+                <h2>Research Interests</h2>
+                <div class="research-grid">
+                    <div class="research-item">
+                        <h3>Gravitational Wave Data Analysis</h3>
+                        <p>Development of efficient algorithms and techniques for detecting gravitational wave signals from various astrophysical sources including binary black holes, neutron stars, and extreme mass ratio inspirals.</p>
+                    </div>
+                    <div class="research-item">
+                        <h3>Swarm Intelligence Methods</h3>
+                        <p>Application of particle swarm optimization and other swarm intelligence techniques to statistical regression, signal processing, and parameter estimation problems in astronomy.</p>
+                    </div>
+                    <div class="research-item">
+                        <h3>Space-based Gravitational Wave Detectors</h3>
+                        <p>Research on data analysis methods for future space-based gravitational wave missions including LISA and the Chinese Tianqin project.</p>
+                    </div>
+                    <div class="research-item">
+                        <h3>Pulsar Timing Arrays</h3>
+                        <p>Development of methods for detecting gravitational waves using pulsar timing array data and multi-messenger astronomy approaches.</p>
+                    </div>
+                    <div class="research-item">
+                        <h3>Machine Learning in Astronomy</h3>
+                        <p>Application of deep learning and artificial intelligence techniques to astronomical data analysis, including glitch detection in gravitational wave data.</p>
+                    </div>
+                    <div class="research-item">
+                        <h3>Computational Physics</h3>
+                        <p>High-performance computing applications in gravitational wave astronomy and development of GPU-accelerated algorithms.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="achievements" class="section">
+                <h2>Selected Achievements & Recognition</h2>
+                <div class="achievement-item">
+                    <h3>Tianqin International Advisory Committee Member (2024-Present)</h3>
+                    <p>Member of the international advisory committee for China's Tianqin space-based gravitational wave detector project.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Institute of Physics Trusted Reviewer (2024)</h3>
+                    <p>Recognized as a trusted reviewer by the Institute of Physics for contributions to peer review process.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>International Lecture Series</h3>
+                    <p>Invited lecturer at prestigious institutions including Cambridge University, Chinese Academy of Sciences, and multiple universities in China for gravitational wave data analysis and swarm intelligence methods.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Faculty Exceptional Merit Awards</h3>
+                    <p>Recipient of multiple Faculty Exceptional Merit Awards from UTB (2007, 2011, 2013) for outstanding contributions to research and teaching.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>Game-Based Learning Recognition</h3>
+                    <p>Award-winning proposal for innovative game-based learning approaches, earning UTB national recognition as one of the "10 Best Colleges for Game-Based Learning" (2012).</p>
+                </div>
+            </section>
+
+            <section id="publications" class="section">
+                <h2>Recent Publications</h2>
+                <div class="publication-item">
+                    <h4>Detection and parameter estimation of supermassive black hole ringdown signals using a pulsar timing array</h4>
+                    <div class="publication-authors">Xuan Tao, Yan Wang, Soumya D. Mohanty</div>
+                    <div class="publication-journal">Accepted, Physical Review D (March 2025)</div>
+                </div>
+                <div class="publication-item">
+                    <h4>Hierarchical search method for gravitational waves from stellar-mass binary black holes in noisy data from space-borne detectors</h4>
+                    <div class="publication-authors">Yao Fu, Yan Wang, Soumya D. Mohanty</div>
+                    <div class="publication-journal">Physical Review D, In press (January 2025)</div>
+                </div>
+                <div class="publication-item">
+                    <h4>Glitch veto based on unphysical gravitational wave binary inspiral templates</h4>
+                    <div class="publication-authors">Raghav Girgaonkar, Soumya D. Mohanty</div>
+                    <div class="publication-journal">Physical Review D 110 023037 (July 2024)</div>
+                </div>
+                <div class="publication-item">
+                    <h4>Search for Extreme Mass Ratio Inspirals using Particle Swarm Optimization and Reduced Dimensionality Likelihoods</h4>
+                    <div class="publication-authors">Xiaobo Zou, Soumya D. Mohanty, Hong-Gang Luo, Yu-Xiao Liu</div>
+                    <div class="publication-journal">Universe 10(4) p. 171 (April 2024)</div>
+                </div>
+                <div class="publication-item">
+                    <h4>Book: Swarm Intelligence Methods for Statistical Regression (1st ed.)</h4>
+                    <div class="publication-authors">Soumya D. Mohanty</div>
+                    <div class="publication-journal">CRC Press (2018)</div>
+                </div>
+            </section>
+
+            <section id="teaching" class="section">
+                <h2>Teaching & Mentoring</h2>
+                <h3>Graduate Students Supervised</h3>
+                <p><strong>PhD Students:</strong> 4 completed, 2 in progress</p>
+                <p><strong>MS Students:</strong> 13 completed, 1 in progress</p>
+                <p><strong>Undergraduate Researchers:</strong> 13 REU students supervised</p>
+                
+                <h3>Courses Taught</h3>
+                <p><strong>Undergraduate:</strong> Modern Physics, Classical Mechanics, University Physics I & II, Electromagnetic Theory, Astronomy I & II, General Physics I & II</p>
+                <p><strong>Graduate:</strong> Classical Mechanics, Quantum Mechanics II, Advanced Statistical Methods for Modern Astronomy, Computational Physics</p>
+                
+                <h3>Innovative Course Development</h3>
+                <p>Developed "Elementary Physics through Video Games" - an innovative course for non-science majors that earned national recognition for game-based learning approaches.</p>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact Information</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div>
+                        <h3>Office Address</h3>
+                        <p>Department of Physics & Astronomy<br>
+                        The University of Texas Rio Grande Valley<br>
+                        One West University Blvd.<br>
+                        Brownsville, TX 78520, USA</p>
+                    </div>
+                    <div>
+                        <h3>Contact Details</h3>
+                        <p><strong>Email:</strong> Soumya.Mohanty@utrgv.edu<br>
+                        <strong>Phone:</strong> +1-956-882-6680<br>
+                        <strong>Fax:</strong> +1-956-882-6726<br>
+                        <strong>ORCID:</strong> 0000-0002-4651-6438</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dr. Soumya D. Mohanty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav links and sections
+                    navLinks.forEach(nl => nl.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked nav link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
