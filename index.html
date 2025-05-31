@@ -505,8 +505,13 @@
                     if (targetSection) {
                         targetSection.classList.add('active');
                     }
+                    
+                    console.log('Clicked:', targetId); // Debug line
                 });
             });
+            
+            // Make sure about section is visible on load
+            document.getElementById('about').classList.add('active');
         });
     </script>
 </body>
